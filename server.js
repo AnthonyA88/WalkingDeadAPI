@@ -37,6 +37,16 @@ app.get('/', function homepage(req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
+app.get('/api/profile', function apiIndex (req, res){
+  //This is the place I am going to put an introduction page
+  res.json({    
+    name: "Anthony Arata",
+    githubLink: "https://github.com/AnthonyA88",
+    currentCity: "San Mateo",
+    linkedIn: "https://www.linkedin.com/in/aarata/"
+  })
+});
+
 
 /*
  * JSON API Endpoints
