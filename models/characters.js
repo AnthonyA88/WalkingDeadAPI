@@ -1,3 +1,10 @@
+var mongoose = require('mongoose'),
+	Schema = mongoose.Schema;
+
+var CharactersSchema = new Schema({
+	description: "String"
+});
+
 characters = [
 	{
 		name: "Rick Grimes",
@@ -12,3 +19,7 @@ characters = [
 		stillAlive: false
 	}
 ]
+
+var Characters = mongoose.model('Characters', CharacterScema);
+
+module.exports = Characters;
