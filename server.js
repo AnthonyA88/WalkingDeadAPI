@@ -18,7 +18,20 @@ app.use(function(req, res, next) {
 /************
  * DATABASE *
  ************/
-
+var characters = [
+  {
+    name: "Rick Grimes",
+    gender: "Male",
+    occupation: "Police Officer",
+    stillAlive: true
+  },
+  {
+    name: "Shane Walsh",
+    gender: "Male",
+    occupation: "Police Officer",
+    stillAlive: false
+  }
+]
 // var db = require('./models');
 
 /**********
@@ -53,7 +66,7 @@ app.get('/api/profile', function apiIndex (req, res){
         {
           name: "Chip",
           type: "Rat",
-          breed: "Hooded Rats"
+          breed: "Hooded Rat"
         }]
   })
 });
@@ -77,6 +90,20 @@ app.get('/api', function apiIndex(req, res) {
       {method: "POST", path: "/api/campsites", description: "E.g. Create a new campsite"} // CHANGE ME
     ]
   })
+});
+
+app.get('/api/characters/', function apiShow(req, res) {
+  res.json({
+    "characters": characters
+  })
+});
+
+app.get('/api/seasons/', function apiUpdate(req, res) {
+  res.json({})
+});
+
+app.get('/api/locations', function apiDelete(req, res) {
+  res.json({})
 });
 
 /**********
