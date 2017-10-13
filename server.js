@@ -92,19 +92,50 @@ app.get('/api', function apiIndex(req, res) {
   })
 });
 
+// INDEX
 app.get('/api/characters/', function apiShow(req, res) {
   res.json({
     "characters": characters
   })
 });
 
-app.get('/api/seasons/', function apiUpdate(req, res) {
-  res.json({})
+// SHOW
+app.get('/api/characters/:id', function apiShow(req, res) {
+  var character_id = req.params.id
+  res.json({
+    "characters": characters
+  })
 });
 
-app.get('/api/locations', function apiDelete(req, res) {
-  res.json({})
+// CREATE
+app.post('/api/characters/', function apiShow(req, res) {
+
+  var newCharacter = req.body;
+  characters.push(newCharacter);
+  res.json({
+    "newCharacter": newCharacter
+  })
 });
+
+// UPDATE 
+app.put('/api/characters/:id', function apiShow(req, res) {
+  var characterID = req.params.id;
+  var updateInfo = req.body;
+  // TODO: Look up the character and change the data to updateInfo.
+  res.json({
+    "characters": characters
+  })
+});
+
+app.delete('/api/characters/:id', function apiShow(req, res) {
+    var characterID = req.params.id;
+    // TODO: Iterate through your characteres, and splice out the one with a matching characterID
+  res.json({
+    "characters": characters
+  })
+});
+
+
 
 /**********
  * SERVER *
